@@ -53,7 +53,7 @@ namespace WordGenerator
             CacheWords(letters, requiredLetters, minLength, validWords);
 
 
-            // show results
+            // display result
             foreach (var word in validWords)
             {
                 listView1.Items.Add(word);
@@ -74,9 +74,10 @@ namespace WordGenerator
         {
             string sortedLetters = SortLetters(letters);
             string sortedRequiredLetters = SortLetters(requiredLetters);
+            // make connection
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
-            {
+            {   
                 connection.Open();
                 string query = @"
             SELECT word
